@@ -3,11 +3,13 @@ import DisplayChart from './DisplayChart'
 import {countries} from '../countries'
 
 const DisplayPopulationStats = () => {
+    const [totalData,setTotalData] = useState([])
     const [fetchYears,setFetchYears] = useState([])
     const [selectedYear, setSelectedYear] = useState('')
     
     useEffect(()=>{
         let fetchYears = [...new Set(countries.map(item => item.Year))]
+        setTotalData(countries)
         setFetchYears(fetchYears) 
     },[])
 
@@ -35,7 +37,7 @@ const DisplayPopulationStats = () => {
             })}
             </select>
             </form>  
-            <DisplayChart />
+            <DisplayChart selectedYear={selectedYear} totalData={totalData}/>
         </>
     )
 }
