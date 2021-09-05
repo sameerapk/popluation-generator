@@ -28,4 +28,4 @@ const DisplayChart = ({selectedYear, totalData}) => {
     )
 }
 
-export default DisplayChart
+export default React.memo(DisplayChart)
